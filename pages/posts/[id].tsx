@@ -7,35 +7,30 @@ import utilStyles from '../../styles/utils.module.scss';
 
 import { GetStaticProps, GetStaticPaths } from 'next';
 
-interface IStaticProps {
-    params: {
-        id: string,
-    },
-}
-
-export const getStaticProps: GetStaticProps = async ({ params }: IStaticProps) => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
     const postData = await getPostData(params.id);
     return {
         props: {
             postData,
-        }
-    }
-}
+        },
+    };
+};
 
+// eslint-disable-next-line @typescript-eslint/require-await
 export const getStaticPaths: GetStaticPaths = async () => {
     const paths = getAllPostIds();
     return {
         paths,
         fallback: false,
-    }
-}
+    };
+};
 
 interface Props {
     postData: {
         title: string;
         date: string;
         contentHtml: string;
-    },
+    };
 }
 
 const Post: React.FC<Props> = ({ postData }) => (
@@ -54,4 +49,3 @@ const Post: React.FC<Props> = ({ postData }) => (
 );
 
 export default Post;
-

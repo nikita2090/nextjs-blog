@@ -9,7 +9,7 @@ const postsDirectory = path.join(process.cwd(), 'posts');
 export function getSortedPostsData() {
     // Get file names under /posts
     const fileNames = fs.readdirSync(postsDirectory);
-    const allPostsData = fileNames.map(fileName => {
+    const allPostsData = fileNames.map((fileName) => {
         // Remove ".md" from file name to get id
         const id = fileName.replace(/\.md$/, '');
 
@@ -24,7 +24,7 @@ export function getSortedPostsData() {
         return {
             id,
             ...(matterResult.data as { date: string; title: string }),
-        }
+        };
     });
 
     // Sort posts by date
@@ -34,18 +34,18 @@ export function getSortedPostsData() {
         } else {
             return -1;
         }
-    })
+    });
 }
 
 export function getAllPostIds() {
     const fileNames = fs.readdirSync(postsDirectory);
-    return fileNames.map(fileName => {
+    return fileNames.map((fileName) => {
         return {
             params: {
                 id: fileName.replace(/\.md$/, ''),
-            }
-        }
-    })
+            },
+        };
+    });
 }
 
 export async function getPostData(id: string) {
@@ -58,7 +58,7 @@ export async function getPostData(id: string) {
     // Use remark to convert markdown into HTML string
     const processedContent = await remark()
         .use(html)
-        .process(matterResult.content)
+        .process(matterResult.content);
     const contentHtml = processedContent.toString();
 
     // Combine the data with the id and contentHtml
@@ -66,5 +66,5 @@ export async function getPostData(id: string) {
         id,
         contentHtml,
         ...(matterResult.data as { date: string; title: string }),
-    }
+    };
 }

@@ -1,8 +1,8 @@
 import '../styles/global.scss';
 import { AppProps } from 'next/app';
 
-const App = ({ Component, pageProps }: AppProps) => (
+const App: React.FC<AppProps> = ({ Component, pageProps }) => (
     <Component {...pageProps} />
-)
+);
 
 export default App;
