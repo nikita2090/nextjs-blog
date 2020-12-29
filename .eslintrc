@@ -18,7 +18,9 @@
     ],
     "rules": {
         "curly": 2,
-        "prettier/prettier": 2
+        "prettier/prettier": 2,
+        "require-await": "off",
+        "@typescript-eslint/require-await": "warn"
     },
     "parserOptions": {
         "ecmaVersion": 2020,

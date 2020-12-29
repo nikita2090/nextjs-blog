@@ -7,7 +7,6 @@ import { getSortedPostsData } from '../lib/posts';
 import utilStyles from '../styles/utils.module.scss';
 import { GetStaticProps } from 'next';
 
-// eslint-disable-next-line @typescript-eslint/require-await
 export const getStaticProps: GetStaticProps = async () => {
     const allPostsData = getSortedPostsData();
     return {
