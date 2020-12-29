@@ -5,6 +5,10 @@ import utilStyles from '../../styles/utils.module.scss';
 
 import Layout from '../../components/layout';
 
+// Static generation of dynamic routes
+// with fallback (missing pageId doesn't return 404 page and generate new static page on first user request.
+// Other users will get this static page on their requests)
+
 export const getStaticPaths: GetStaticPaths = async () => ({
     paths: [
         {

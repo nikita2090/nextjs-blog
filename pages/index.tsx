@@ -7,6 +7,8 @@ import { getSortedPostsData } from '../lib/posts';
 import utilStyles from '../styles/utils.module.scss';
 import { GetStaticProps } from 'next';
 
+// Static generation with fetching data on build time
+
 export const getStaticProps: GetStaticProps = async () => {
     const allPostsData = getSortedPostsData();
     return {
@@ -33,8 +35,13 @@ const Home: React.FC<Props> = ({ allPostsData }) => (
         </Head>
         <section className={utilStyles.headingMd}>
             <p>[Your Self Introduction]</p>
-            <Link href="/posts/first-post">
-                <a>First post</a>
+            <Link href="/static">
+                <a>Static</a>
+            </Link>
+            <br />
+
+            <Link href="/ssr">
+                <a>SSR</a>
             </Link>
         </section>
         <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>

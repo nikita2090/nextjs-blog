@@ -6,6 +6,9 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import { getAllPostIds, getPostData } from '../../lib/posts';
 import utilStyles from '../../styles/utils.module.scss';
 
+// Static generation of dynamic routes without fallback
+// (pre-rendered pages of posts, every missing id returns 404)
+
 export const getStaticProps: GetStaticProps = async ({ params }) => {
     const postData = await getPostData(params?.id);
     return {

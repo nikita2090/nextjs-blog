@@ -1,7 +1,10 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import Layout from '../../components/layout';
+import Layout from '../components/layout';
 import { GetStaticProps } from 'next';
+
+// Static generation with fetching data on build time and
+// revalidate (page re-generates when request comes and at most once every second)
 
 export interface IRes {
     name: {
@@ -43,7 +46,7 @@ interface Props {
     name: string;
 }
 
-const FirstPost: React.FC<Props> = ({ name }) => (
+const Static: React.FC<Props> = ({ name }) => (
     <Layout>
         <Head>
             <title>First Post</title>
@@ -59,4 +62,4 @@ const FirstPost: React.FC<Props> = ({ name }) => (
     </Layout>
 );
 
-export default FirstPost;
+export default Static;
