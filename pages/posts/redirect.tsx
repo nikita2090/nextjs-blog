@@ -4,8 +4,10 @@ import Layout from '../../components/layout';
 
 import { GetStaticProps } from 'next';
 
+// Static generation with redirect if no data
+
 export const getStaticProps: GetStaticProps = async () => {
-    const data = true;
+    const data = false;
 
     if (!data) {
         return {
