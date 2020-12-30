@@ -46,13 +46,9 @@ const Hybrid: React.FC = () => {
             <Head>
                 <title>First Post</title>
             </Head>
+            <h1>Hybrid Page(Static + CSR)</h1>
             <p>{loading ? 'Loading...' : `Hello! My name is ${name}`}</p>
             <button onClick={handleBtnClick}>fetch name</button>
-            <h2>
-                <Link href="/">
-                    <a>Home</a>
-                </Link>
-            </h2>
         </Layout>
     );
 };

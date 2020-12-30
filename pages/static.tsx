@@ -51,10 +51,9 @@ const Static: React.FC<Props> = ({ name }) => (
         <Head>
             <title>First Post</title>
         </Head>
-        <p>Hello! My name is {name}</p>
-
-        <h1>First Post</h1>
+        <h1>Static Page</h1>
         <h2>
+            <p>Hello! My name is {name}</p>
             <Link href="/posts/redirect">
                 <a>Redirect</a>
             </Link>

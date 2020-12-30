@@ -7,7 +7,8 @@ import Layout from '../../components/layout';
 
 // Static generation of dynamic routes
 // with fallback (missing pageId doesn't return 404 page and generate new static page on first user request.
-// Other users will get this static page on their requests)
+// Other users will get this static page on their requests.
+// And with revalidation (page re-generates when request comes and at most once every second)
 
 export const getStaticPaths: GetStaticPaths = async () => ({
     paths: [
@@ -25,12 +26,23 @@ export const getStaticPaths: GetStaticPaths = async () => ({
     fallback: true,
 });
 
-export const getStaticProps: GetStaticProps = async ({ params }) => ({
-    props: {
-        name: params?.pageId,
-    },
-    revalidate: 1,
-});
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+    const name = params?.pageId;
+    //const name = false;
+
+    if (!name) {
+        return {
+            notFound: true,
+        };
+    }
+
+    return {
+        props: {
+            name,
+        },
+        revalidate: 1,
+    };
+};
 
 interface Props {
     name: string;

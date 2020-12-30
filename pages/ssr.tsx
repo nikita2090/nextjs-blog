@@ -5,7 +5,7 @@ import utilStyles from '../styles/utils.module.scss';
 
 import { GetServerSideProps } from 'next';
 
-// SSR (every user request generates page)
+// SSR (every user request generates page), if no data => 404
 
 export const getServerSideProps: GetServerSideProps = async () => {
     const someFetchedData = 'When my guitar gently weeps';
@@ -33,6 +33,7 @@ const SSR: React.FC<Props> = ({ someFetchedData }) => (
         <Head>
             <title>SSR</title>
         </Head>
+        <h1>SSR Page</h1>
         <section className={utilStyles.headingMd}>
             <p>{someFetchedData}</p>
         </section>

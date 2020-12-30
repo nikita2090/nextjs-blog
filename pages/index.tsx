@@ -34,7 +34,7 @@ const Home: React.FC<Props> = ({ allPostsData }) => (
             <title>{siteTitle}</title>
         </Head>
         <section className={utilStyles.headingMd}>
-            <p>[Your Self Introduction]</p>
+            <h1>Types of rendering:</h1>
             <Link href="/static">
                 <a>Static</a>
             </Link>
@@ -46,11 +46,13 @@ const Home: React.FC<Props> = ({ allPostsData }) => (
             <br />
 
             <Link href="/hybrid">
-                <a>Hybrid</a>
+                <a>Hybrid (Static + CSR)</a>
             </Link>
         </section>
         <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-            <h2 className={utilStyles.headingLg}>Blog</h2>
+            <h2 className={utilStyles.headingLg}>
+                Static Generation with Dynamic Routing:
+            </h2>
             <ul className={utilStyles.list}>
                 {allPostsData.map(({ id, date, title }: IAllPostsData) => (
                     <li className={utilStyles.listItem} key={id}>
@@ -64,6 +66,14 @@ const Home: React.FC<Props> = ({ allPostsData }) => (
                     </li>
                 ))}
             </ul>
+
+            <h2 className={utilStyles.headingLg}>
+                Static Generation with Dynamic Routing and fallback:
+            </h2>
+
+            <Link href="/products/something">
+                <a>Something</a>
+            </Link>
         </section>
     </Layout>
 );
