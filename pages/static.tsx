@@ -31,7 +31,7 @@ export const getStaticProps: GetStaticProps = async () => {
         const data = (await res.json()) as IResponce;
         name = data.results[0].name.first;
     } catch (err) {
-        alert(err);
+        console.log(err);
     }
 
     return {
