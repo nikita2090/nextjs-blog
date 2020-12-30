@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Link from 'next/link';
 import Layout from '../components/layout';
 import { useState } from 'react';
 
@@ -38,6 +37,7 @@ const Hybrid: React.FC = () => {
             setLoading(false);
         } catch (err) {
             alert(err);
+            setLoading(false);
         }
     };
 

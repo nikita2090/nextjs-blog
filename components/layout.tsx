@@ -4,7 +4,7 @@ import Head from 'next/head';
 import styles from './layout.module.scss';
 import utilStyles from '../styles/utils.module.scss';
 
-const name = 'Your Name';
+const name = 'Next.js';
 export const siteTitle = 'Next.js Sample Website';
 
 interface Props {
