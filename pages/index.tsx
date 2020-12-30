@@ -74,6 +74,10 @@ const Home: React.FC<Props> = ({ allPostsData }) => (
             <Link href="/products/something">
                 <a>Something</a>
             </Link>
+            <hr />
+            <Link href="/imageTest">
+                <a>Next-Image Test</a>
+            </Link>
         </section>
     </Layout>
 );
