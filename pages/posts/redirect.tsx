@@ -7,16 +7,18 @@ import { GetStaticProps } from 'next';
 // Static generation with redirect if no data
 
 export const getStaticProps: GetStaticProps = async () => {
-    const data = false;
+    //  Redirecting at build-time is currently not allowed and if the redirects are known at build-time they should be added in next.config.js.
 
-    if (!data) {
-        return {
-            redirect: {
-                destination: '/',
-                permanent: false,
-            },
-        };
-    }
+    // const data = false;
+    //
+    // if (!data) {
+    //     return {
+    //         redirect: {
+    //             destination: '/',
+    //             permanent: false,
+    //         },
+    //     };
+    // }
 
     return {
         props: {
