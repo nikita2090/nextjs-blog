@@ -10,7 +10,7 @@ import utilStyles from '../../styles/utils.module.scss';
 // (pre-rendered pages of posts, every missing id returns 404)
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-    const postData = await getPostData(params?.id);
+    const postData = await getPostData(params?.id as string);
     return {
         props: {
             postData,
