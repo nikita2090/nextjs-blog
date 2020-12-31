@@ -4,17 +4,24 @@ import { GetStaticProps } from 'next';
 
 export const getStaticProps: GetStaticProps = async () => {
     const { USERNAME1, NEXT_PUBLIC_API } = process.env;
-    let serverEnvs = false;
     console.log(USERNAME1, NEXT_PUBLIC_API);
 
+    let serverEnvs = false;
     if (USERNAME1 && NEXT_PUBLIC_API) {
         serverEnvs = true;
+    }
+
+    const { SECRET } = process.env;
+    let vercelEnv = false;
+    if (SECRET) {
+        vercelEnv = true;
     }
 
     return {
         props: {
             data: 'Environment Variables',
             serverEnvs,
+            vercelEnv,
         },
     };
 };
@@ -22,9 +29,10 @@ export const getStaticProps: GetStaticProps = async () => {
 interface Props {
     data: string;
     serverEnvs: boolean;
+    vercelEnv: boolean;
 }
 
-const Static: React.FC<Props> = ({ data, serverEnvs }) => {
+const Static: React.FC<Props> = ({ data, serverEnvs, vercelEnv }) => {
     // destructuring doesnt work
     console.log(process.env.USERNAME1);
     console.log(process.env.NEXT_PUBLIC_API);
@@ -40,7 +48,10 @@ const Static: React.FC<Props> = ({ data, serverEnvs }) => {
 
             <h2>Browser</h2>
             <p>{process.env.USERNAME1}</p>
-            <p>{process.env.NEXT_PUBLIC_API}</p>
+            <p>{process.env.NEXT_PUBLIC_API} - Ok</p>
+
+            <h2>Vercel</h2>
+            {vercelEnv ? <p>Ok</p> : null}
         </Layout>
     );
 };
