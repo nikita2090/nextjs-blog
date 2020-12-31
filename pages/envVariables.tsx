@@ -11,9 +11,9 @@ export const getStaticProps: GetStaticProps = async () => {
         serverEnvs = true;
     }
 
-    const { SECRET } = process.env;
+    const { SECRET } = process.env; // env variable from Vercel
     let vercelEnv = false;
-    if (SECRET) {
+    if (SECRET === 'next123') {
         vercelEnv = true;
     }
 
