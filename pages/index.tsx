@@ -82,6 +82,10 @@ const Home: React.FC<Props> = ({ allPostsData }) => (
             <Link href="/envVariables">
                 <a>Env Test</a>
             </Link>
+            <hr />
+            <Link href="/shallowRouting">
+                <a>Shallow Routing</a>
+            </Link>
         </section>
     </Layout>
 );

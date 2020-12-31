@@ -32,7 +32,7 @@ interface Props {
     vercelEnv: boolean;
 }
 
-const Static: React.FC<Props> = ({ data, serverEnvs, vercelEnv }) => {
+const Envs: React.FC<Props> = ({ data, serverEnvs, vercelEnv }) => {
     // destructuring doesnt work
     console.log(process.env.USERNAME1);
     console.log(process.env.NEXT_PUBLIC_API);
@@ -56,4 +56,4 @@ const Static: React.FC<Props> = ({ data, serverEnvs, vercelEnv }) => {
     );
 };
 
-export default Static;
+export default Envs;
