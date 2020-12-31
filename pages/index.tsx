@@ -78,6 +78,10 @@ const Home: React.FC<Props> = ({ allPostsData }) => (
             <Link href="/imageTest">
                 <a>Next-Image Test</a>
             </Link>
+            <hr />
+            <Link href="/envVariables">
+                <a>Env Test</a>
+            </Link>
         </section>
     </Layout>
 );
