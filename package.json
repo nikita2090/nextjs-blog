@@ -20,6 +20,7 @@
     "husky:uninstall": "npx rimraf .husky"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "date-fns": "^2.16.1",
     "gray-matter": "^4.0.2",
     "next": "^10.0.0",
