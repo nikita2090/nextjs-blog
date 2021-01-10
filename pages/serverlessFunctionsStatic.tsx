@@ -8,7 +8,7 @@ export interface IResponce {
     text: string;
 }
 
-const ServerlessFunctions: React.FC = () => {
+const ServerlessFunctionsStatic: React.FC = () => {
     const [getReqResult, setGetReqResult] = useState('');
     const [inputText, setInputText] = useState('');
     const [postReqResult, setPostReqResult] = useState('');
@@ -48,18 +48,18 @@ const ServerlessFunctions: React.FC = () => {
             <Head>
                 <title>Serverless Functions</title>
             </Head>
-            <h1>ServerlessFunctions</h1>
+            <h1>Serverless Functions (Static)</h1>
             <div>
                 <div>Get:{getReqResult}</div>
                 <button onClick={handleGetBtnClick}>Get message</button>
                 <hr />
 
+                <div>Post:{postReqResult}</div>
                 <input value={inputText} onChange={handleInputChange} />
                 <button onClick={handlePostBtnClick}>Post message</button>
-                <div>Post:{postReqResult}</div>
             </div>
         </Layout>
     );
 };
 
-export default ServerlessFunctions;
+export default ServerlessFunctionsStatic;

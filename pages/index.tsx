@@ -87,9 +87,18 @@ const Home: React.FC<Props> = ({ allPostsData }) => (
                 <a>Shallow Routing</a>
             </Link>
             <hr />
-            <Link href="/serverlessFunctions">
-                <a>ServerlessFunctions</a>
+            <Link href="/serverlessFunctionsStatic">
+                <a>Serverless Functions (Static)</a>
             </Link>
+            <br />
+            <Link href="/users">
+                <a>ServerlessFunctions (Dynamic)</a>
+            </Link>
+            <br />
+            <Link href="/users/2">
+                <a>ServerlessFunctions (Dynamic-2)</a>
+            </Link>
+            <br />
         </section>
     </Layout>
 );
