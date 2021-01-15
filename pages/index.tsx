@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import Layout, { siteTitle } from '../components/layout';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -28,6 +29,45 @@ interface Props {
     allPostsData: IAllPostsData[];
 }
 
+const RENDERING_TYPES = [
+    { name: 'Static', path: '/static' },
+    { name: 'SSR', path: '/ssr' },
+    { name: 'Hybrid (Static + CSR)', path: '/hybrid' },
+];
+
+const FEATURES = [
+    {
+        name: 'Static Generation with Dynamic Routing and fallback',
+        path: '/products/something',
+        ElemAfter: 'hr',
+    },
+    { name: 'Next-Image Test', path: '/imageTest', ElemAfter: 'hr' },
+    { name: 'Env Test', path: '/envVariables', ElemAfter: 'hr' },
+    { name: 'Shallow Routing', path: '/shallowRouting', ElemAfter: 'hr' },
+    {
+        name: 'Serverless Functions (Static)',
+        path: '/serverlessFunctionsStatic',
+        ElemAfter: 'br',
+    },
+    {
+        name: 'Serverless Functions (Static-2)',
+        path: '/users',
+        ElemAfter: 'br',
+    },
+    {
+        name: 'Serverless Functions (Dynamic)',
+        path: '/users/2',
+        ElemAfter: 'hr',
+    },
+    { name: 'Static Locale (ru)', path: '/staticLocales', ElemAfter: 'br' },
+    {
+        name: 'Static Locale (en-US)',
+        path: '/staticLocales',
+        ElemAfter: 'br',
+        locale: 'en-US',
+    },
+];
+
 const Home: React.FC<Props> = ({ allPostsData }) => (
     <Layout home>
         <Head>
@@ -35,19 +75,14 @@ const Home: React.FC<Props> = ({ allPostsData }) => (
         </Head>
         <section className={utilStyles.headingMd}>
             <h1>Types of rendering:</h1>
-            <Link href="/static">
-                <a>Static</a>
-            </Link>
-            <br />
-
-            <Link href="/ssr">
-                <a>SSR</a>
-            </Link>
-            <br />
-
-            <Link href="/hybrid">
-                <a>Hybrid (Static + CSR)</a>
-            </Link>
+            {RENDERING_TYPES.map(({ name, path }) => (
+                <Fragment key={name}>
+                    <Link href={path}>
+                        <a>{name}</a>
+                    </Link>
+                    <br />
+                </Fragment>
+            ))}
         </section>
         <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
             <h2 className={utilStyles.headingLg}>
@@ -67,38 +102,16 @@ const Home: React.FC<Props> = ({ allPostsData }) => (
                 ))}
             </ul>
 
-            <h2 className={utilStyles.headingLg}>
-                Static Generation with Dynamic Routing and fallback:
-            </h2>
-
-            <Link href="/products/something">
-                <a>Something</a>
-            </Link>
-            <hr />
-            <Link href="/imageTest">
-                <a>Next-Image Test</a>
-            </Link>
-            <hr />
-            <Link href="/envVariables">
-                <a>Env Test</a>
-            </Link>
-            <hr />
-            <Link href="/shallowRouting">
-                <a>Shallow Routing</a>
-            </Link>
-            <hr />
-            <Link href="/serverlessFunctionsStatic">
-                <a>Serverless Functions (Static)</a>
-            </Link>
-            <br />
-            <Link href="/users">
-                <a>ServerlessFunctions (Dynamic)</a>
-            </Link>
-            <br />
-            <Link href="/users/2">
-                <a>ServerlessFunctions (Dynamic-2)</a>
-            </Link>
-            <br />
+            {FEATURES.map(({ name, path, locale, ElemAfter }) => {
+                return (
+                    <Fragment key={name}>
+                        <Link href={path} locale={locale}>
+                            <a>{name}</a>
+                        </Link>
+                        <ElemAfter />
+                    </Fragment>
+                );
+            })}
         </section>
     </Layout>
 );

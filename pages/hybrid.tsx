@@ -22,11 +22,17 @@ export interface IResponce {
     results: IRes[];
 }
 
-const Hybrid: React.FC = () => {
+interface Props {
+    globalState: string;
+    handleGlobalState: (str: string) => void;
+}
+
+const Hybrid: React.FC<Props> = ({ globalState, handleGlobalState }) => {
     const [name, setName] = useState('');
     const [loading, setLoading] = useState(false);
 
     const handleBtnClick = async () => {
+        handleGlobalState('changed');
         let name;
         try {
             setLoading(true);
@@ -49,6 +55,7 @@ const Hybrid: React.FC = () => {
             <h1>Hybrid Page(Static + CSR)</h1>
             <p>{loading ? 'Loading...' : `Hello! My name is ${name}`}</p>
             <button onClick={handleBtnClick}>fetch name</button>
+            <div>Global state {globalState}</div>
         </Layout>
     );
 };
