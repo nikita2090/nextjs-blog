@@ -48,7 +48,7 @@ interface Props {
     locale: string;
 }
 
-const StaticLocales: React.FC<Props> = ({ name, locale }) => (
+const Locales: React.FC<Props> = ({ name, locale }) => (
     <Layout>
         <Head>
             <title>Static Locales</title>
@@ -64,4 +64,4 @@ const StaticLocales: React.FC<Props> = ({ name, locale }) => (
     </Layout>
 );
 
-export default StaticLocales;
+export default Locales;

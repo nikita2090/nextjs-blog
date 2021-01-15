@@ -59,10 +59,10 @@ const FEATURES = [
         path: '/users/2',
         ElemAfter: 'hr',
     },
-    { name: 'Static Locale (ru)', path: '/staticLocales', ElemAfter: 'br' },
+    { name: 'Locale (ru)', path: '/locales', ElemAfter: 'br' },
     {
-        name: 'Static Locale (en-US)',
-        path: '/staticLocales',
+        name: 'Locale (en-US)',
+        path: '/locales',
         ElemAfter: 'br',
         locale: 'en-US',
     },
