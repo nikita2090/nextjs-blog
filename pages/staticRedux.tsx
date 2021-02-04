@@ -40,6 +40,12 @@ const StaticRedux: React.FC<Props> = () => {
     const handleDecrement = (e: React.MouseEvent<HTMLButtonElement>) => {
         dispatch(actions.decrement());
     };
+
+    const handleIncrementWithSaga = (
+        e: React.MouseEvent<HTMLButtonElement>
+    ) => {
+        dispatch(actions.incrementWithSaga({ ms: 2000 }));
+    };
     return (
         <Layout>
             <Head>
@@ -50,6 +56,7 @@ const StaticRedux: React.FC<Props> = () => {
             <p>Count: {counter}</p>
             <button onClick={handleIncrement}>+</button>
             <button onClick={handleDecrement}>-</button>
+            <button onClick={handleIncrementWithSaga}>+ with saga</button>
             <></>
         </Layout>
     );

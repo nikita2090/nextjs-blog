@@ -67,7 +67,7 @@ const FEATURES = [
         locale: 'en-US',
     },
     {
-        name: 'Static with Redux',
+        name: 'Static with Redux (and saga)',
         path: '/staticRedux',
         ElemAfter: 'br',
     },

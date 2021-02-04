@@ -1,10 +1,11 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createAction, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../store/store';
 
 export const counterSlice = createSlice({
     name: 'counter',
     initialState: {
         value: 0,
+        loading: false,
     },
     reducers: {
         increment: (state) => {
@@ -13,10 +14,23 @@ export const counterSlice = createSlice({
         decrement: (state) => {
             state.value -= 1;
         },
+        changeLoading: (state, action: PayloadAction<boolean>) => {
+            state.loading = action.payload;
+        },
     },
 });
 
-export const { increment, decrement } = counterSlice.actions;
+export interface IIncrementWithSaga {
+    ms: number;
+}
+
+export const incrementWithSaga = createAction<IIncrementWithSaga>(
+    'counter/incrementWithSaga'
+);
+
+export const { increment, decrement, changeLoading } = counterSlice.actions;
+export const selectLoading = (state: RootState): boolean =>
+    state.counter.loading;
 export const selectCount = (state: RootState): number => state.counter.value;
 
 export default counterSlice.reducer;
