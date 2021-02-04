@@ -66,6 +66,11 @@ const FEATURES = [
         ElemAfter: 'br',
         locale: 'en-US',
     },
+    {
+        name: 'Static with Redux',
+        path: '/staticRedux',
+        ElemAfter: 'br',
+    },
 ];
 
 const Home: React.FC<Props> = ({ allPostsData }) => (
