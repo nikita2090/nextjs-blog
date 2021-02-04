@@ -71,6 +71,11 @@ const FEATURES = [
         path: '/staticRedux',
         ElemAfter: 'br',
     },
+    {
+        name: 'SSR with Redux',
+        path: '/ssrRedux',
+        ElemAfter: 'br',
+    },
 ];
 
 const Home: React.FC<Props> = ({ allPostsData }) => (

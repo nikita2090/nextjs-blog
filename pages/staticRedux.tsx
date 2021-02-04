@@ -4,6 +4,7 @@ import Layout from '../components/layout';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectCount } from '../features/counter/counterSlice';
 import * as actions from '../features/counter/counterSlice';
+import { useState } from 'react';
 
 // Static generation with redux
 
@@ -36,11 +37,9 @@ const StaticRedux: React.FC<Props> = () => {
     const handleIncrement = (e: React.MouseEvent<HTMLButtonElement>) => {
         dispatch(actions.increment());
     };
-
     const handleDecrement = (e: React.MouseEvent<HTMLButtonElement>) => {
         dispatch(actions.decrement());
     };
-
     const handleIncrementWithSaga = (
         e: React.MouseEvent<HTMLButtonElement>
     ) => {
@@ -49,7 +48,7 @@ const StaticRedux: React.FC<Props> = () => {
     return (
         <Layout>
             <Head>
-                <title>With Redux</title>
+                <title>Static with Redux</title>
             </Head>
             <h1>Static Page with Redux</h1>
 
@@ -57,7 +56,6 @@ const StaticRedux: React.FC<Props> = () => {
             <button onClick={handleIncrement}>+</button>
             <button onClick={handleDecrement}>-</button>
             <button onClick={handleIncrementWithSaga}>+ with saga</button>
-            <></>
         </Layout>
     );
 };

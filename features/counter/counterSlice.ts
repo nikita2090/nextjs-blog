@@ -17,6 +17,9 @@ export const counterSlice = createSlice({
         changeLoading: (state, action: PayloadAction<boolean>) => {
             state.loading = action.payload;
         },
+        setCount: (state, action: PayloadAction<number>) => {
+            state.value = action.payload;
+        },
     },
 });
 
@@ -28,9 +31,16 @@ export const incrementWithSaga = createAction<IIncrementWithSaga>(
     'counter/incrementWithSaga'
 );
 
-export const { increment, decrement, changeLoading } = counterSlice.actions;
+export const {
+    increment,
+    decrement,
+    changeLoading,
+    setCount,
+} = counterSlice.actions;
+
 export const selectLoading = (state: RootState): boolean =>
     state.counter.loading;
+
 export const selectCount = (state: RootState): number => state.counter.value;
 
 export default counterSlice.reducer;
